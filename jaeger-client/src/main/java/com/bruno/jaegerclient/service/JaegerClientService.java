@@ -15,10 +15,7 @@ public class JaegerClientService {
     }
 
     public Mono<String> get(Integer id) {
-        String a = "";
-        String f = "";
 
-        String b = "";
 
         return webClient.get()
                 .uri("http://localhost:8082/jaeger/server/" + id)
