@@ -1,5 +1,6 @@
 package com.bruno.jaegerserver.controller;
 
+import com.bruno.jaegerserver.localthread.LocalThreadTest;
 import com.bruno.jaegerserver.service.JaegerServerService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,8 @@ public class JaegerServerController {
     private final JaegerServerService jaegerServerService;
 
     @GetMapping("/{id}")
-    public Mono<String> get(@PathVariable("id") Integer id){
+    public Mono<String> get(@PathVariable("id") String id){
+        LocalThreadTest.setValue(2);
 
         return jaegerServerService.get(id);
 

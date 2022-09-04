@@ -18,9 +18,7 @@ public class JaegerClientController {
 
     @GetMapping("/{id}")
     public Mono<String> get(@PathVariable("id") Integer id){
-        LocalThreadTest.setValue(1);
-
-        return jaegerClientService.get(id);
-
+        Mono<String> resultado = jaegerClientService.get(id);
+        return resultado;
     }
 }

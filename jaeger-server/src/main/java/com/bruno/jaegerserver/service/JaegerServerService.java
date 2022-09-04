@@ -1,5 +1,6 @@
 package com.bruno.jaegerserver.service;
 
+import com.bruno.jaegerserver.localthread.LocalThreadTest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -13,7 +14,8 @@ public class JaegerServerService {
         this.webClient = webClient;
     }
 
-    public Mono<String> get(Integer id) {
+    public Mono<String> get(String id) {
+        LocalThreadTest.setValue(2);
 
         return webClient.get()
                 .uri("http://numberapi.com/" + id)
